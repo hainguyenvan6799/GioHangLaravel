@@ -1,0 +1,17 @@
+PS F:\xampp\htdocs\socialnetwork> php artisan make:auth                                                                 Authentication scaffolding generated successfully.
+PS F:\xampp\htdocs\socialnetwork> php artisan make:model Product -m                                                     Model created successfully.
+Created Migration: 2020_04_12_131853_create_products_table
+PS F:\xampp\htdocs\socialnetwork> php artisan make:seed ProductTableSeeder                                              Seeder created successfully.
+PS F:\xampp\htdocs\socialnetwork>  
+
+sau khi hoàn tất điền các thông tin vào migration và seeder thì thực hiện các câu lệnh sau để chạy dữ liệu lên csdl
+PS F:\xampp\htdocs\socialnetwork> php artisan migrate                                                                   Migration table created successfully.
+Migrating: 2014_10_12_000000_create_users_table
+Migrated:  2014_10_12_000000_create_users_table (0.51 seconds)
+Migrating: 2014_10_12_100000_create_password_resets_table
+Migrated:  2014_10_12_100000_create_password_resets_table (0.69 seconds)
+Migrating: 2020_04_12_131853_create_products_table
+Migrated:  2020_04_12_131853_create_products_table (0.26 seconds)
+PS F:\xampp\htdocs\socialnetwork> php artisan db:seed                                                                   Seeding: ProductTableSeeder
+Database seeding completed successfully.
+PS F:\xampp\htdocs\socialnetwork>                                                                                                                                
