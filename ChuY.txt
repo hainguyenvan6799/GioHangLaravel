@@ -14,4 +14,19 @@ Migrating: 2020_04_12_131853_create_products_table
 Migrated:  2020_04_12_131853_create_products_table (0.26 seconds)
 PS F:\xampp\htdocs\socialnetwork> php artisan db:seed                                                                   Seeding: ProductTableSeeder
 Database seeding completed successfully.
-PS F:\xampp\htdocs\socialnetwork>                                                                                                                                
+PS F:\xampp\htdocs\socialnetwork>           
+
+
+
+Cach cai dat laravel debug bar
+https://allaravel.com/blog/huong-dan-cai-dat-va-su-dung-laravel-debugbar  
+
+
+upload host https://lovelaravel.com/how-to-deploy-laravel-project-into-000webhost-site/
+trang chính thức của 000webhost
+
+
+
+id13428126_socialnetwork	id13428126_haihai	localhost
+
+laravelappHT Thu01679343794                                                                                                                   

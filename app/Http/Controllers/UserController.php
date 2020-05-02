@@ -41,7 +41,7 @@ class UserController extends Controller
     	return redirect('signup')->with('announce', 'Sign up successfully');
     }
     public function getLogin(){
-        Session::put('url.intended',URL::previous());
+        Session::put('oldUrl',URL::previous());
     	return view('users.login');
     }
     public function postLogin(Request $request)
@@ -50,7 +50,13 @@ class UserController extends Controller
     	$password = $request->password;
     	if(Auth::attempt(['email'=>$email, 'password'=>$password]))
     	{
-    		return Redirect::to(Session::get('url.intended'));
+            if(Session::has('oldUrl'))
+            {
+                $oldUrl = Session::get('oldUrl');
+                return redirect()->to($oldUrl);
+            }
+            return redirect('LaravelShop');
+    		
     	}
     	else
     	{

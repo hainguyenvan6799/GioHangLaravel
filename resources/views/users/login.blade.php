@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
 	<div class="col-md-4 col-md-offset-4">
-		<h1>Sign Up</h1>
+		<h1>Sign In</h1>
 
 		@if(count($errors) > 0)
 			<div class="alert alert-danger">
@@ -26,6 +26,7 @@
 				<input type="password" name="password" class="form-control">
 			</div>
 			<button type="Submit">Login</button>
+			<p>Don't have an account? <a href="{{ route('users.signup') }}">Sign up here</a></p>
 		</form>
 
 	</div>

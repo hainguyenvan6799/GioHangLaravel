@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Barryvdh\Debugbar\Facade as DebugBar;
+use App\testMigrate;
+use Artisan;
 
 class testController extends Controller
 {
@@ -27,6 +30,18 @@ class testController extends Controller
     }
 
     public function testJs(){
-        return view('test.testJavascript');
+        $environment = \App::environment();
+        echo $environment;
+    }
+
+    public function testMigrate(){
+        $test = testMigrate::find(1);
+        echo $test->user_id;
+    }
+    public function maintainenceDown(){
+        return Artisan::call('down');
+    }
+    public function maintainenceUp(){
+        return Artisan::call('live');
     }
 }

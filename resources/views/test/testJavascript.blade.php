@@ -4,7 +4,6 @@
 	<title></title>
 </head>
 <body>
-
 </body>
 <script type="text/javascript">
 	// function test(fruit)

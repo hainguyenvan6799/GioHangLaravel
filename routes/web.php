@@ -11,10 +11,28 @@
 |
 */
 use App\Product;
+use Barryvdh\Debugbar\Facade as DebugBar;
 $products = Product::all();
 
 Route::get('/', function () {
+	
+	//DebugBar::info($product);
+
+	//DebugBar::error("Error");
+
+	//DebugBar::addMessage("Hello");
+
+	// DebugBar::startMeasure('query time', 'The execution time of user query');
+	// 	$product = Product::find(1);
+	// DebugBar::stopMeasure('query time');
+	try{
+		throw new Exception("This is exception");
+	}catch(\Exception $e){
+		DebugBar::addException($e);
+	}	
+
     return view('welcome');
+
 });
 
 Route::view('LaravelShop', 'shop.index', ['products'=>$products]);
@@ -82,3 +100,10 @@ Route::post('checkout', [
 	'uses'=>'ProductController@postCheckout',
 	'as'=>'checkout'
 ]);
+
+//test migration
+Route::get('testMigrate', 'testController@testMigrate');
+
+//route test maintainence mode
+Route::get('maintainenceDown', 'testController@maintainenceDown');
+Route::get('maintainenceUp', 'testController@maintainenceUp');

@@ -26,6 +26,7 @@ class ProductController extends Controller
     	$cart->add($product, $product->id);
 
     	$request->session()->put('cart', $cart);
+
     	// dd($request->session()->get('cart'));
     	return redirect('LaravelShop');
     }
@@ -40,6 +41,10 @@ class ProductController extends Controller
     }
     //checkout
     public function checkout(){
+        if(!Auth::check())
+        {
+            return redirect()->route('users.login');
+        }
     	if(!Session::has('cart'))
     	{
     		return view('shop.shopping-cart');
@@ -78,14 +83,8 @@ class ProductController extends Controller
             $order->address = $request->input('address');
             $order->name = $request->input('name');
             $order->payment_id = $a->id;
-            if(Auth::check())
-            {
+            
                 Auth::user()->orders()->save($order);
-            }
-            else
-            {
-                return redirect()->route('users.login');
-            }
             
         }catch(\Exception $e)
         {
