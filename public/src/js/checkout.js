@@ -35,9 +35,9 @@ card.addEventListener('change', function(event) {
 
 // Handle form submission.
 var form = document.getElementById('checkout-form');
-form.addEventListener('submit', function(event) {
+form.addEventListener('submit', function(event){
   event.preventDefault();
-
+  
   stripe.createToken(card).then(function(result) {
     if (result.error) {
       // Inform the user if there was an error.
